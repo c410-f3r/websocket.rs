@@ -19,3 +19,15 @@ tokio = { version = "1", default-features = false, features = ["io-util"] }
 tokio = { version = "1", default-features = false, features = ["macros", "rt-multi-thread", "net"] }
 base64 = "0.21"
 sha-1 = "0.10"
+
+[profile.release]
+codegen-units = 1
+debug = false
+debug-assertions = false
+incremental = false
+lto = true
+opt-level = 3
+overflow-checks = false
+panic = 'abort'
+rpath = false
+strip = "debuginfo"
